@@ -116,11 +116,11 @@ def shortest_path(source, target):
     while True:
         neighbors = neighbors_for_person(focus.state)
 
-        n_dict = {movie: person for movie, person in neighbors}
-        for p in n_dict:
-            if p == target:
-                final_path = (p, n_dict[p])
-                break
+        match = [a for a in neighbors if a[1] == target]
+
+        if match:
+            print(match)
+            final_path = match[0]
 
         if final_path:
             success_var = 1
